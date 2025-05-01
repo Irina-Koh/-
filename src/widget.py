@@ -22,8 +22,15 @@ def mask_account_card(type_and_number: str) -> str:
         card_example = number
         masked_card = get_mask_card_number(card_example)
         new_tupe_and_number = f'Maestro: {masked_card}'
-
     return new_tupe_and_number
+
+
+def get_date(date: str) -> str:
+    day = date[8:10]
+    month = date[5:7]
+    year = date[0:4]
+    new_date = f'{day}.{month}.{year}'
+    return new_date
 
 
 
