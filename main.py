@@ -1,14 +1,13 @@
 from src.masks import get_mask_account, get_mask_card_number
 from src.widget import mask_account_card, get_date
 from src.processing import filter_by_state, sort_by_date
-from tests.conftest import list_card
 
 
 def main() -> None:
     card_example = '5999414228426353'
     account_example = '73654108430135874305'
-    type_and_number = "visa platinum 7000792289606361"
-    date = "2024-03-11T02:26:18.671407"
+    type_and_number = "счет 73654108430135874305"
+    date = "2031-02-29T02:26:18.671400"
     banking_operation = [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
