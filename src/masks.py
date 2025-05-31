@@ -4,7 +4,7 @@ def get_mask_card_number(card_number: str) -> str:
     XXXX XX** **** XXXX
     """
     if len(card_number) != 16 or card_number.isdigit() == False:
-        return 'Неккоректные данные. Номер карты состоит из 16 цифр'
+        return "Неккоректные данные. Номер карты состоит из 16 цифр"
     else:
         number_1 = card_number[:5]  # первые четыре цифры
         number_2 = card_number[5:7]  # пятая и шестая цифра
@@ -19,7 +19,7 @@ def get_mask_account(account_number: str) -> str:
     **XXXX
     """
     if len(account_number) != 20 or account_number.isdigit() == False:
-        return 'Неккоректные данные. Номер счета состоит из 20 цифр'
+        return "Неккоректные данные. Номер счета состоит из 20 цифр"
     else:
         number_1 = account_number[-4:]
         new_get_mask_account = f"**{number_1}"
