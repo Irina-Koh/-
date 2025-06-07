@@ -1,19 +1,6 @@
-import pytest
-
-
-@pytest.fixture
-def banking_operation_state():
-    return [
-        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-09-12T08:21:33.419441"},
-        {},
-        {"id": 615064591, "date": "2018-09-12T08:21:33.419441"},
-    ]
-@pytest.fixture
-def transactions():
-    return [
+import random
+transactions =(
+        [
         {
             "id": 939719570,
             "state": "EXECUTED",
@@ -89,6 +76,7 @@ def transactions():
             "from": "Visa Platinum 1246377376343588",
             "to": "Счет 14211924144426031657"
         },
+        {},
         {"id": 594226727,
         "state": "CANCELED",
         "date": "2018-09-12T21:27:25.241689",
@@ -103,4 +91,49 @@ def transactions():
         "to": "Счет 14211924144426031657"
          }
     ]
+    )
+
+def filter_by_currency(transactions: list[dict], currency_code="USD"):
+        """Фильтрует транзакции по заданному коду валюты и возвращает итератор."""
+        try:
+            for transaction in transactions:
+                if transaction["operationAmount"]["currency"]["code"] == currency_code:
+                    yield transaction
+        except KeyError:
+            return "Введены некорректные данные"
+# Фильтрация транзакций с валютой USD
+usd_transactions = filter_by_currency(transactions, currency_code="USD")
+print(next(usd_transactions))
+
+
+def transaction_descriptions(transactions):
+    '''
+    Функция,которая выдает номера банковских карт в формате XXXX XXXX XXXX XXXX, где X — цифра номера карты
+    '''
+    for transaction in transactions:
+        yield transaction["description"]
+
+descriptions = transaction_descriptions(transactions)
+
+
+def card_number_generator(start=1, stop=9999999999999999):
+        """
+        Генерирует случайный номер банковской карты в указанном диапазоне.
+
+        :param start: минимальное значение диапазона (включительно)
+        :param end: максимальное значение диапазона (включительно)
+        :return: строка формата 'XXXX XXXX XXXX XXXX'
+        """
+        # Генерация случайного числа в пределах указанного диапазона
+        number = str(random.randint(start, stop))
+
+        # Добавляем ведущие нули, если число меньше максимального количества цифр
+        while len(number) < 16:
+            number = '0' + number
+
+        # Форматируем строку согласно банковскому стандарту (группы по четыре цифры)
+        formatted_number = ' '.join([number[i:i + 4] for i in range(0, len(number), 4)])
+        yield formatted_number
+card_number = card_number_generator()
+
 

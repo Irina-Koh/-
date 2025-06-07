@@ -1,19 +1,4 @@
-import pytest
-
-
-@pytest.fixture
-def banking_operation_state():
-    return [
-        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-09-12T08:21:33.419441"},
-        {},
-        {"id": 615064591, "date": "2018-09-12T08:21:33.419441"},
-    ]
-@pytest.fixture
-def transactions():
-    return [
+transactions = [
         {
             "id": 939719570,
             "state": "EXECUTED",
@@ -88,19 +73,5 @@ def transactions():
             "description": "Перевод организации",
             "from": "Visa Platinum 1246377376343588",
             "to": "Счет 14211924144426031657"
-        },
-        {"id": 594226727,
-        "state": "CANCELED",
-        "date": "2018-09-12T21:27:25.241689",
-        "operationAmount": {
-        "amount": "67314.70",
-        "currency": {
-            "name": "руб.",
-            }
-        },
-        "description": "Перевод организации",
-        "from": "Visa Platinum 1246377376343588",
-        "to": "Счет 14211924144426031657"
-         }
+        }
     ]
-
