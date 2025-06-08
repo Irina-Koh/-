@@ -67,7 +67,8 @@ def main() -> None:
     ]
     state = "EXECUTED"
     reverse = True
-
+    start = 0
+    stop = 4
     banking_operation_date = sort_by_date(banking_operation_date, reverse)
     banking_operation_new = filter_by_state(banking_operation_state, state)
     masked_card = get_mask_card_number(card_example)
@@ -76,7 +77,7 @@ def main() -> None:
     masked_date = get_date(date)
     transactions_usd = filter_by_currency(transactions, currency_code="USD")
     descriptions_ = transaction_descriptions(transactions)
-    card_number_ = card_number_generator(start=1, stop=9999999999999999)
+    card_number_ = card_number_generator(start, stop)
     print(banking_operation_date)
     print(banking_operation_new)
     print("Маскированная карта:", masked_card)

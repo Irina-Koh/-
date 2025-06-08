@@ -1,7 +1,7 @@
 from collections.abc import generator
 
 import pytest
-from src.generators import filter_by_currency, transaction_descriptions
+from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
 
 def test_filter_by_currency(transactions):
@@ -44,3 +44,14 @@ def test_transaction_descriptions(transactions):
     assert next(generator) == "Перевод организации"
 
 
+@pytest.mark.parametrize(
+    "start, stop, number_card",
+    [
+        (1, 1, "0000 0000 0000 0001"),
+        (0, 5, "Введены некорректные данные"),
+        (2, 11111111111111111, "Введены некорректные данные"),
+    ],
+)
+def test_card_number_generator(start, stop, number_card):
+    generator = card_number_generator(start, stop)
+    assert next(generator) == number_card

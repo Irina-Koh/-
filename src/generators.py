@@ -90,10 +90,11 @@ def transaction_descriptions(transactions):
     except KeyError:
         return "Введены некорректные данные"
 
+
 descriptions = transaction_descriptions(transactions)
 
 
-def card_number_generator(start=1, stop=9999999999999999):
+def card_number_generator(start, stop):
     """
     Генерирует случайный номер банковской карты в указанном диапазоне.
 
@@ -102,15 +103,17 @@ def card_number_generator(start=1, stop=9999999999999999):
     :return: строка формата 'XXXX XXXX XXXX XXXX'
     """
     # Генерация случайного числа в пределах указанного диапазона
-    number = str(random.randint(start, stop))
 
-    # Добавляем ведущие нули, если число меньше максимального количества цифр
-    while len(number) < 16:
-        number = "0" + number
+    if start > 0 and stop < 10000000000000000 and start <= stop:
+        number = str(random.randint(start, stop))
+        # Добавляем ведущие нули, если число меньше максимального количества цифр
+        while len(number) < 16:
+            number = "0" + number
+        # Форматируем строку согласно банковскому стандарту (группы по четыре цифры)
+        formatted_number = " ".join([number[i : i + 4] for i in range(0, len(number), 4)])
+        yield formatted_number
+    else:
+        return "Введены некорректные данные"
 
-    # Форматируем строку согласно банковскому стандарту (группы по четыре цифры)
-    formatted_number = " ".join([number[i : i + 4] for i in range(0, len(number), 4)])
-    yield formatted_number
 
-
-card_number = card_number_generator()
+card_number = card_number_generator(start=1, stop=5)
