@@ -11,6 +11,7 @@ def test_log():
 
 
 def test_log(capsys):
+    @log()
     def summa(x, y):
         return x + y
 
