@@ -7,7 +7,7 @@ from config import file_path
 # Использование pathlib для построения абсолютного пути
 
 
-def load_transactions(file_path: str) -> dict:
+def load_transactions(file_path: str) -> list:
     """
     Загружает финансовые транзакции из указанного JSON-файла.
 
@@ -21,7 +21,7 @@ def load_transactions(file_path: str) -> dict:
 
         # Проверка типа загруженных данных
         if isinstance(data, list):
-            return print(data)
+            return data
         else:
             print("Ошибка: Данные в файле не являются списком.")
             return []
@@ -32,4 +32,5 @@ def load_transactions(file_path: str) -> dict:
         print(f"Ошибка: Невозможно декодировать JSON из файла {file_path}.")
         return []
 
-load_transactions(file_path)
+print(load_transactions(file_path))
+
