@@ -1,0 +1,28 @@
+function start time: 20:25:29
+Function summa executed successfully with result: 15
+function end time: 20:25:29
+function start time: 20:27:36
+Function divide executed successfully with result: 0.5
+function end time: 20:27:36
+function start time: 20:28:00
+Function divide executed successfully with result: 0.5
+function end time: 20:28:00
+Error in function divide: TypeError, args=(5, 10), kwargs={}
+function start time: 20:30:43
+Function divide executed successfully with result: 0.5
+function end time: 20:30:43
+function start time: 20:32:26
+Function divide executed successfully with result: 0
+function end time: 20:32:26
+function start time: 23:35:45
+Function summa executed successfully with result: 13
+function end time: 23:35:45
+function start time: 23:40:17
+Function summa executed successfully with result: 13
+function end time: 23:40:17
+function start time: 23:40:23
+Function summa executed successfully with result: 13
+function end time: 23:40:23
+function start time: 08:27:01
+Function summa executed successfully with result: 13
+function end time: 08:27:01

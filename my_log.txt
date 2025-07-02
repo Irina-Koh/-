@@ -1,0 +1,23 @@
+Function summa executed successfully with result: None
+Function summa executed successfully with result: None
+Function summa executed successfully with result: None
+Function summa executed successfully with result: None
+Function summa executed successfully with result: None
+Function summa executed successfully with result: None
+Function summa executed successfully with result: None
+Error in function summa: TypeError, args=(), kwargs={'x': 5, 'y': 6}
+Error in function summa: TypeError, args=(), kwargs={'x': 5, 'y': 6}
+Function summa executed successfully with result: None
+Error in function summa: ValueError, args=(), kwargs={'x': 5, 'y': 6}
+Function summa executed successfully with result: None
+Function summa executed successfully with result: None
+Error in function summa: TypeError, args=(), kwargs={}
+Function summa executed successfully with result: None
+Function summa executed successfully with result: 100000000000000
+function start time: 19:45:51
+Function summa executed successfully with result: 100000000000000
+function end time: 19:45:51
+function start time: 19:48:03
+Function summa executed successfully with result: 5555555555566777777777111111111111111111111115555555500000000000000
+function end time: 19:48:03
+
