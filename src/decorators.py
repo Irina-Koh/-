@@ -1,5 +1,6 @@
 import datetime
 
+
 def log(filename=None):
     def decorator(func):
         def wrapper(*args, **kwargs):

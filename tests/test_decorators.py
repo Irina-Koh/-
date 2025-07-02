@@ -1,6 +1,7 @@
 from datetime import datetime
 from src.decorators import log
 
+
 def test_log():
     @log("my_log.txt")
     def summa(x, y):
