@@ -1,5 +1,4 @@
 import pandas as pd
-import csv
 
 
 def reading_transactions_csv(file: str) -> list[dict]:
