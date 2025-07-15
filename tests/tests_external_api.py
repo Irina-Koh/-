@@ -1,6 +1,7 @@
 from unittest.mock import patch
 from src.external_api import convert_to_rub
 
+
 def test_exchange_currency_1():
     """Тестирование функции exchange_currency() если валюта (currency) в
     транзакции в рублях"""
