@@ -4,7 +4,7 @@ import logging
 
 logger = logging.getLogger("utils")
 logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler(filename="../logs/utils.log", encoding="utf-8", mode="w")
+file_handler = logging.FileHandler(filename="./logs/utils.log", encoding="utf-8", mode="w")
 file_formater = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formater)
 logger.addHandler(file_handler)
@@ -38,6 +38,3 @@ def load_transactions(file_path: str) -> list:
         logger.error(f"Невозможно декодировать JSON из файлф {file_path}")
         print(f"Ошибка: Невозможно декодировать JSON из файла {file_path}.")
         return []
-
-
-print(load_transactions(file_path))

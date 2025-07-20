@@ -21,7 +21,7 @@ def reading_transactions_csv(file: str) -> list[dict]:
         return []
 
 
-print(reading_transactions_csv("../transactions/transactions.csv"))
+reading_transactions_csv("./transactions/transactions.csv")
 
 
 def reading_transactions_excel(file: str) -> list[dict]:
@@ -44,4 +44,4 @@ def reading_transactions_excel(file: str) -> list[dict]:
         return []
 
 
-print(reading_transactions_excel("../transactions/transactions_excel.xlsx"))
+reading_transactions_excel("./transactions/transactions_excel.xlsx")
