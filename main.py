@@ -149,6 +149,8 @@ def main():
         final_data = filter_description(processed_currency)
         if len(final_data) == 0:
             print("Не найдено ни одной транзакции, подходящей под ваши условия фильтрации")
+        print("Распечатываю итоговый список транзакций...")
+        print(f"Всего банковских операций в выборке: {len(final_data)}")
         for operation in final_data:
             date_operation = operation.get("date", "")
 
@@ -168,8 +170,7 @@ def main():
             currency = operation.get("operationAmount", {}).get("currency", {}).get("name", "")
 
             # Выводим информацию о каждой операции
-            print("Распечатываю итоговый список транзакций...")
-            print(f"Всего банковских операций в выборке: {len(final_data)}")
+
             print(f"{formatted_date} {description_operation}")
             print(f"{from_operation} -> {to_operation}")
             print(f"Сумма: {amount} {currency}")
